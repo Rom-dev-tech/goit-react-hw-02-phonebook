@@ -41,6 +41,12 @@ class App extends Component {
     toastrOptions();
   };
 
+  deleteContact = (todoId) => {
+    this.setState((prevState) => ({
+      contacts: prevState.contacts.filter((contact) => contact.id !== todoId),
+    }));
+  };
+
   changeFilter = (event) => {
     this.setState({ filter: event.currentTarget.value });
   };
@@ -63,28 +69,13 @@ class App extends Component {
         <ContactsFomr onSubmit={this.addContact} />
         <h2>Contacts</h2>
         <Filter value={filter} onChange={this.changeFilter} />
-        <ContactsList contacts={visibleContacts} />
+        <ContactsList
+          contacts={visibleContacts}
+          onDeleteContact={this.deleteContact}
+        />
       </Container>
     );
   }
 }
-
-// toastr.options = {
-//   closeButton: true,
-//   debug: false,
-//   newestOnTop: false,
-//   progressBar: true,
-//   positionClass: 'toast-top-right',
-//   preventDuplicates: false,
-//   onclick: null,
-//   showDuration: '300',
-//   hideDuration: '1000',
-//   timeOut: '3000',
-//   extendedTimeOut: '500',
-//   showEasing: 'swing',
-//   hideEasing: 'linear',
-//   showMethod: 'fadeIn',
-//   hideMethod: 'fadeOut',
-// };
 
 export default App;
