@@ -1,5 +1,6 @@
 import React from 'react';
-import '../ContactsEditor/ContactsEditor.scss';
+import PropTypes from 'prop-types';
+import '../ContactsFomr/ContactsFomr.scss';
 
 const Filter = ({ value, onChange }) => (
   <label className="form__label">
@@ -12,5 +13,10 @@ const Filter = ({ value, onChange }) => (
     />
   </label>
 );
+
+Filter.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 
 export default Filter;

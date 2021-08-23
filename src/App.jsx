@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import shortid from 'shortid';
 import Container from './components/Container';
-import ContactsFomr from './components/ContactsEditor';
+import ContactsFomr from './components/ContactsFomr';
 import ContactsList from './components/ContactsList';
 import Filter from './components/Filter';
 

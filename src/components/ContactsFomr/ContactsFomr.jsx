@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import '../ContactsEditor/ContactsForm.scss';
+import PropTypes from 'prop-types';
+import '../ContactsFomr/ContactsFomr.scss';
 
 const INITIAL_STATE = {
   name: '',
@@ -67,5 +68,9 @@ class ContactsFomr extends Component {
     );
   }
 }
+
+ContactsFomr.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
 
 export default ContactsFomr;
