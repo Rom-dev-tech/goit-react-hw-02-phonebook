@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import shortid from 'shortid';
+import toastr from 'toastr';
+import toastrOptions from './components/Notification';
 import Container from './components/Container';
 import ContactsFomr from './components/ContactsFomr';
 import ContactsList from './components/ContactsList';
@@ -35,7 +37,8 @@ class App extends Component {
       return;
     }
 
-    alert(`${name} is already in contacts`);
+    toastr.error(`${name} is already in contacts`);
+    toastrOptions();
   };
 
   changeFilter = (event) => {
@@ -65,5 +68,23 @@ class App extends Component {
     );
   }
 }
+
+// toastr.options = {
+//   closeButton: true,
+//   debug: false,
+//   newestOnTop: false,
+//   progressBar: true,
+//   positionClass: 'toast-top-right',
+//   preventDuplicates: false,
+//   onclick: null,
+//   showDuration: '300',
+//   hideDuration: '1000',
+//   timeOut: '3000',
+//   extendedTimeOut: '500',
+//   showEasing: 'swing',
+//   hideEasing: 'linear',
+//   showMethod: 'fadeIn',
+//   hideMethod: 'fadeOut',
+// };
 
 export default App;
