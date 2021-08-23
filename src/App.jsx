@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import shortid from 'shortid';
 import Container from './components/Container';
-import ContactsEditor from './components/ContactsEditor';
+import ContactsFomr from './components/ContactsEditor';
 import ContactsList from './components/ContactsList';
 import Filter from './components/Filter';
 
@@ -47,7 +47,7 @@ class App extends Component {
     return (
       <Container>
         <h1>Phonebook</h1>
-        <ContactsEditor onSubmit={this.addContact} />
+        <ContactsFomr onSubmit={this.addContact} />
         <h2>Contacts</h2>
         <Filter value={filter} onChange={this.changeFilter} />
         <ContactsList contacts={visibleContacts} />

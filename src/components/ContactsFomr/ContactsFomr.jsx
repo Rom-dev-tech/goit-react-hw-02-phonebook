@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import '../ContactsEditor/ContactsEditor.scss';
+import '../ContactsEditor/ContactsForm.scss';
 
 const INITIAL_STATE = {
   name: '',
   number: '',
 };
 
-class ContactsEditor extends Component {
+class ContactsFomr extends Component {
   state = { ...INITIAL_STATE };
 
   onChange = (event) => {
@@ -68,4 +68,4 @@ class ContactsEditor extends Component {
   }
 }
 
-export default ContactsEditor;
+export default ContactsFomr;
