@@ -9,10 +9,11 @@ class App extends Component {
     contacts: [],
   };
 
-  addContact = (name) => {
+  addContact = ({ name, number }) => {
     const contact = {
       id: shortid.generate(),
       name,
+      number,
     };
 
     this.setState(({ contacts }) => ({
