@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../ContactsEditor/ContactsEditor.scss';
 
 class ContactsEditor extends Component {
   state = {
@@ -19,10 +20,11 @@ class ContactsEditor extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Name
+      <form className="form" onSubmit={this.handleSubmit}>
+        <label className="form__label">
+          <span className="form__name">Name</span>
           <input
+            className="form__input"
             value={this.state.name}
             onChange={this.handleChange}
             autoComplete="off"
@@ -33,7 +35,9 @@ class ContactsEditor extends Component {
             required
           />
         </label>
-        <button type="submit">Add contact</button>
+        <button className="form__button" type="submit">
+          Add contact
+        </button>
       </form>
     );
   }
