@@ -16,16 +16,26 @@ class App extends Component {
     filter: '',
   };
 
-  addContact = ({ name, number }) => {
-    const contact = {
-      id: shortid.generate(),
-      name,
-      number,
-    };
+  checkNameValidatiton = (newName) => {
+    const contacts = this.state.contacts;
+    return contacts.find(({ name }) => name === newName);
+  };
 
-    this.setState(({ contacts }) => ({
-      contacts: [contact, ...contacts],
-    }));
+  addContact = ({ name, number }) => {
+    if (!this.checkNameValidatiton(name)) {
+      const contact = {
+        id: shortid.generate(),
+        name,
+        number,
+      };
+
+      this.setState(({ contacts }) => ({
+        contacts: [contact, ...contacts],
+      }));
+      return;
+    }
+
+    alert(`${name} is already in contacts`);
   };
 
   changeFilter = (event) => {
