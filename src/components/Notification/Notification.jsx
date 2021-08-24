@@ -20,5 +20,4 @@ const toastrOptions = () => {
     hideMethod: 'fadeOut',
   });
 };
-
 export default toastrOptions;
