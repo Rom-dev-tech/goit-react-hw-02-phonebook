@@ -7,12 +7,31 @@ import ContactsFomr from './components/ContactsFomr';
 import ContactsList from './components/ContactsList';
 import Filter from './components/Filter';
 import NotificatiomMessage from './components/NotificatiomMessage';
+import Clock from './components/Clock';
 
 class App extends Component {
   state = {
     contacts: [],
     filter: '',
   };
+
+  componentDidMount() {
+    const contacts = localStorage.getItem('contacts');
+    const parsedContacts = JSON.parse(contacts);
+
+    if (parsedContacts) {
+      this.setState({ contacts: parsedContacts });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const nextContacts = this.state.contacts;
+    const prevContacts = prevState.contacts;
+
+    if (nextContacts !== prevContacts) {
+      localStorage.setItem('contacts', JSON.stringify(nextContacts));
+    }
+  }
 
   checkNameValidatiton = (newName) => {
     const contacts = this.state.contacts;
@@ -62,8 +81,9 @@ class App extends Component {
     const totalContactsCount = contacts.length;
     return (
       <Container>
-        <h1>Phonebook</h1>
-        <p>Total contacts: {totalContactsCount}</p>
+        <Clock title={'Phonebook'} />
+
+        <div>Total contacts: {totalContactsCount}</div>
         <ContactsFomr onSubmit={this.addContact} />
 
         {totalContactsCount <= 0 ? (

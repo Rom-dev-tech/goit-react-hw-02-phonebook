@@ -1,5 +1,9 @@
 @import 'styles/shared.scss';
 
+.contacts__list {
+  padding: 0;
+}
+
 .contacts__item {
   display: flex;
   align-items: center;
