@@ -1,6 +1,15 @@
+@import 'styles/shared.scss';
+
 .contacts__item {
   display: flex;
   align-items: center;
+  border-radius: 4px;
+  padding: 10px;
+  max-width: 350px;
+
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
 
   &::before {
     content: '';
@@ -8,26 +17,17 @@
 
     width: 5px;
     height: 5px;
-    background-color: #000;
+    background-color: $black;
     border-radius: 50%;
     margin-right: 10px;
   }
 }
 
+.contacts__text {
+  margin-bottom: 0;
+}
+
 .delete__btn {
-  cursor: pointer;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  background-color: transparent;
-  font-size: 14px;
-  padding: 5px;
-  max-width: 100px;
-  margin-left: 20px;
-
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  &:hover,
-  &:focus {
-    background-color: #03a9f4;
-  }
+  @extend %button;
+  margin-left: auto;
 }

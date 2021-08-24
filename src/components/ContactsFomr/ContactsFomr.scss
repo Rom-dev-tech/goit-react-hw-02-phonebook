@@ -1,8 +1,10 @@
+@import 'styles/shared.scss';
+
 .form {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 1px solid black;
+  border: 1px solid $black;
   height: 200px;
   width: 450px;
   padding: 20px;
@@ -15,7 +17,7 @@
 .form__input {
   display: block;
   border-radius: 4px;
-  border: 1px solid #ccc;
+  border: 1px solid $grey;
 }
 
 .form__name {
@@ -25,18 +27,6 @@
 }
 
 .form__button {
-  cursor: pointer;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  background-color: transparent;
-  font-size: 14px;
-  padding: 5px;
+  @extend %button;
   max-width: 100px;
-
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  &:hover,
-  &:focus {
-    background-color: #03a9f4;
-  }
 }
