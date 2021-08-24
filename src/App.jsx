@@ -66,16 +66,18 @@ class App extends Component {
         <p>Total contacts: {totalContactsCount}</p>
         <ContactsFomr onSubmit={this.addContact} />
 
-        <h2>Contacts</h2>
-        <Filter value={filter} onChange={this.changeFilter} />
-
         {totalContactsCount <= 0 ? (
           <NotificatiomMessage message={'no contacts yet ...'} />
         ) : (
-          <ContactsList
-            contacts={visibleContacts}
-            onDeleteContact={this.deleteContact}
-          />
+          <>
+            <h2>Contacts</h2>
+            <Filter value={filter} onChange={this.changeFilter} />
+
+            <ContactsList
+              contacts={visibleContacts}
+              onDeleteContact={this.deleteContact}
+            />
+          </>
         )}
       </Container>
     );
