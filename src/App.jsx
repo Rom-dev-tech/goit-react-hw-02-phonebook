@@ -63,7 +63,7 @@ class App extends Component {
     const totalContactsCount = contacts.length;
     return (
       <Container>
-        <Clock title={'Phonebook'} />
+        <Clock title="Phonebook" />
 
         <div>Total contacts: {totalContactsCount}</div>
         <ContactsFomr onSubmit={this.addContact} />
